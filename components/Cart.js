@@ -1,8 +1,9 @@
 import { Fontisto, MaterialIcons } from '@expo/vector-icons'
-import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native'
 import useStoreForOrderFoods from '../app/Slices/OrderFoodSlice'
 import { SwipeListView } from 'react-native-swipe-list-view';
 import Animate, { FadeOutDown, FadeInUp } from 'react-native-reanimated';
+import { Image } from '@rneui/themed'
 function Basic() {
     const { foods } = useStoreForOrderFoods()
     const setOrderFoods = useStoreForOrderFoods((state) => state.setOrderFoods)
@@ -14,7 +15,18 @@ function Basic() {
     const renderItem = ({ item, index }) => <View key={index} style={styles.container}>
         <View style={styles.item}>
             <View style={styles.itemInfo}>
-                <Image source={item?.image} style={styles.itemImage} />
+                <Image
+                    source={item?.image}
+                    style={styles.itemImage}
+                    transition={'fade'}
+                    transitionDuration={300}
+                    placeholderStyle={{ backgroundColor: '#f5b350' }}
+                    PlaceholderContent={<ActivityIndicator animating color={'#ffffff'}
+
+
+                    />}
+
+                />
                 <Text style={styles.qt}>{item?.QT} X</Text>
 
                 <Text numberOfLines={1} style={styles.name}>{item?.name}</Text>

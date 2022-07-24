@@ -1,11 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useRoute } from '@react-navigation/native'
 import Data from '../../app/RestLIST'
 import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header-scroll-view';
 import { Ionicons } from '@expo/vector-icons';
 import Padding from '../../components/Padding';
 import useStoreForOrderFoods from '../../app/Slices/OrderFoodSlice';
-
+import { Image } from '@rneui/themed'
 const OrderScreen = () => {
     const { params } = useRoute()
     const { restID } = params
@@ -95,7 +95,15 @@ const OrderScreen = () => {
                                         <TouchableOpacity activeOpacity={.5}>
 
                                             <View style={styles.foodList}>
-                                                <Image fadeDuration={300} source={item.image} style={styles.foodImage} />
+                                                <Image
+                                                    fadeDuration={300}
+                                                    transition={'fade'}
+                                                    transitionDuration={300}
+                                                    placeholderStyle={{ backgroundColor: '#f5b350' }}
+                                                    PlaceholderContent={<ActivityIndicator animating color={'#ffffff'} />}
+                                                    source={item.image}
+                                                    style={styles.foodImage}
+                                                />
                                                 <View style={styles.foodInfo}>
                                                     <Text numberOfLines={1} style={styles.foodListTitle}>
                                                         {item.name}
