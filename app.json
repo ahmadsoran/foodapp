@@ -5,7 +5,12 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "scheme": "foodapp",
+    "userInterfaceStyle": "automatic",
+    "privacy": "public",
+    "githubUrl": "https://github.com/ahmadsoran",
+    "owner": "ahmadsorann",
+    "jsEngine": "hermes",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,7 +23,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "requireFullScreen": true
     },
     "android": {
       "adaptiveIcon": {
