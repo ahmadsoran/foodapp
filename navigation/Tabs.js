@@ -103,6 +103,7 @@ export default function Tabs() {
                 headerTitle: '126-6 badinan address',
                 headerTitleAlign: 'center',
 
+
                 tabBarIcon: ({ color }) => (
                     <Animate.View style={animaterotateY}>
                         <AntDesign name="home" color={color} size={34} />

@@ -4,7 +4,7 @@ import useStoreForOrderFoods from '../app/Slices/OrderFoodSlice'
 import { SwipeListView } from 'react-native-swipe-list-view';
 import Animate, { FadeOutDown, FadeInUp } from 'react-native-reanimated';
 import { Image } from '@rneui/themed'
-function Basic() {
+export function CartItems() {
     const { foods } = useStoreForOrderFoods()
     const setOrderFoods = useStoreForOrderFoods((state) => state.setOrderFoods)
     const deleteRow = (rowID) => {
@@ -51,6 +51,7 @@ function Basic() {
         previewOpenValue={-40}
         previewOpenDelay={3000}
         disableRightSwipe={true}
+
         ListFooterComponent={() => {
             return (
                 foods.length > 0 &&
@@ -68,18 +69,28 @@ function Basic() {
 
     />;
 }
-export default function Cart() {
-    const { foods } = useStoreForOrderFoods()
+export default function Cart({ navigation }) {
+    const { foods } = useStoreForOrderFoods();
+    const setOrderFrom = useStoreForOrderFoods((state) => state.setOrderFrom)
     const totalPrices = foods.map(item => {
         return parseInt(item.price) * parseInt(item.QT)
     });
     const totalPrice = totalPrices.reduce((a, b) => a + b, 0) + 2000;
     const totalPriceWithComma = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
+    const NavigateToConfirmOrder = () => {
+        navigation.navigate('ConfirmOrderScreen')
+        setOrderFrom({
+            name: 'Example Restaurant Name',
+            phone: '0123456789',
+            address: 'example restaurant address',
+            myAddress: 'example user address',
+            totalPrice: totalPriceWithComma,
+        })
+    }
     return (
         <SafeAreaView>
             <View style={{ height: '100%' }}>
-                <Basic />
+                <CartItems />
                 {
                     foods.length > 0 &&
                     <Animate.View entering={FadeInUp} exiting={FadeOutDown}>
@@ -87,7 +98,7 @@ export default function Cart() {
                             <Text style={styles.totalText}>Total</Text>
                             <Text style={styles.totalPrice}>{totalPriceWithComma} IQD</Text>
                         </View>
-                        <TouchableOpacity style={styles.checkoutBtn} activeOpacity={.9}>
+                        <TouchableOpacity style={styles.checkoutBtn} onPress={NavigateToConfirmOrder} activeOpacity={.9}>
                             <View style={styles.checkoutBtnContainer}>
                                 <Text style={styles.checkoutText}>Check out</Text>
                             </View>
@@ -141,7 +152,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginLeft: 10,
-        width: 100,
+        width: 80,
     },
     qt: {
         fontSize: 16,

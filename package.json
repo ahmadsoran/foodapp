@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "postinstall": "npx jetify"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -29,7 +30,8 @@
     "zustand": "^4.0.0-rc.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "jetifier": "^2.0.0"
   },
   "private": true
 }

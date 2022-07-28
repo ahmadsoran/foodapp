@@ -6,14 +6,16 @@ import { Ionicons } from '@expo/vector-icons';
 import Padding from '../../components/Padding';
 import useStoreForOrderFoods from '../../app/Slices/OrderFoodSlice';
 import { Image } from '@rneui/themed'
+import MyBottomSheet from '../../components/BottomSheet';
+import { useState } from 'react';
 const OrderScreen = () => {
     const { params } = useRoute()
     const { restID } = params
     const findRest = Data.RestaurantsList.find(item => item.id === restID)
     const { foods } = useStoreForOrderFoods()
     const setOrderFoods = useStoreForOrderFoods((state) => state.setOrderFoods)
+    const [ShowBttomSheet, setShowBttomSheet] = useState(false)
     const setFoodsHandler = ({ name, image, id, QT, price }) => {
-        // if food is not in the list
         if (!foods.find(item => item.id === id)) {
             setOrderFoods([...foods, { name, image, id, QT, price }])
         }
@@ -92,7 +94,9 @@ const OrderScreen = () => {
                             findRest.foodsData.map((item, index) => {
                                 return (
                                     <View key={index} style={styles.foodListContainer}>
-                                        <TouchableOpacity activeOpacity={.5}>
+                                        <TouchableOpacity activeOpacity={.5}
+                                            onPress={() => setShowBttomSheet(true)}
+                                        >
 
                                             <View style={styles.foodList}>
                                                 <Image
@@ -148,6 +152,7 @@ const OrderScreen = () => {
                     </Padding>
                 </TriggeringView>
             </View>
+            <MyBottomSheet Visable={ShowBttomSheet} onBackdropPress={() => setShowBttomSheet(false)} />
         </ImageHeaderScrollView>
     )
 }

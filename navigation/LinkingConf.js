@@ -18,6 +18,17 @@ const linking = {
                             orderScreen: 'OrderScreen',
                         },
                     },
+                    cartScreen: {
+                        screens: {
+                            cartScreen: 'CartScreen',
+                        },
+                    },
+                    confirmOrderScreen: {
+                        screens: {
+                            confirmOrderScreen: 'ConfirmOrderScreen',
+                        },
+                    },
+
 
                 },
 
