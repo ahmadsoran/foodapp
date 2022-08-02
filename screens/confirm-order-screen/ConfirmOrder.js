@@ -3,8 +3,11 @@ import { Button, Image } from '@rneui/themed'
 import useStoreForOrderFoods from '../../app/Slices/OrderFoodSlice'
 import ConfirmOrderAddress from '../../components/ConfirmOrderAddress'
 
-const ConfirmOrder = () => {
+const ConfirmOrder = ({ navigation }) => {
     const { foods, orderFrom } = useStoreForOrderFoods()
+    const navigateToMaps = () => {
+        navigation.navigate('Maps')
+    }
     return (
         <>
 
@@ -44,7 +47,8 @@ const ConfirmOrder = () => {
                                                 PlaceholderContent={<ActivityIndicator animating color={'#ffffff'}
 
 
-                                                />}
+                                                />
+                                                }
 
                                             />
                                             <Text style={styles.qt}>{item?.QT} X</Text>
@@ -92,10 +96,12 @@ const ConfirmOrder = () => {
                 </ScrollView>
             }
             <View style={styles.orderBtn}>
-                <Button containerStyle={styles.orderBtnStyle} buttonStyle={{
-                    backgroundColor: '#f5b350',
+                <Button
+                    onPress={navigateToMaps}
+                    containerStyle={styles.orderBtnStyle} buttonStyle={{
+                        backgroundColor: '#f5b350',
 
-                }}>Place Order</Button>
+                    }}>Place Order</Button>
             </View>
         </>
 

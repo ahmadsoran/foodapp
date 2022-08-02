@@ -1,5 +1,5 @@
 import { EvilIcons } from '@expo/vector-icons'
-import { BottomSheet, CheckBox } from '@rneui/themed'
+import { BottomSheet, Button, CheckBox } from '@rneui/themed'
 import { useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
@@ -37,6 +37,7 @@ const MyBottomSheet = ({ Visable, onBackdropPress }) => {
                 backgroundColor: 'transparent',
 
             }}
+
 
             scrollViewProps={{
                 persistentScrollbar: true,
@@ -123,7 +124,9 @@ const MyBottomSheet = ({ Visable, onBackdropPress }) => {
                                 }>Large</Text>
 
                         </View>
+
                     </View>
+                    <Button title='Add to Cart' containerStyle={styles.itemSizeBtn} buttonStyle={styles.btn} />
 
                 </View>
             </ScrollView>
@@ -139,7 +142,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     container: {
-        backgroundColor: '#f5f5fa',
+        backgroundColor: '#fff',
         width: '100%',
         minHeight: '70%',
         borderTopLeftRadius: 20,
@@ -171,6 +174,7 @@ const styles = StyleSheet.create({
     bottomContainer: {
         backgroundColor: '#ffffff',
         padding: 20,
+
     },
     itemSizeContainer: {
         display: 'flex',
@@ -235,6 +239,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 5,
-
+    },
+    itemSizeBtn: {
+        width: '100%',
+        borderRadius: 10,
+        overflow: 'hidden',
+        marginTop: 20,
+    },
+    btn: {
+        backgroundColor: '#f5b350',
+        padding: 10,
     }
 })

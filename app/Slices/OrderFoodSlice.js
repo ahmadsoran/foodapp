@@ -6,6 +6,16 @@ const useStoreForOrderFoods = create((set) => ({
         phone: '',
         address: '',
         myAddress: '',
+        locations: {
+            rest: {
+                lat: 35.57201228306946,
+                lng: 45.407009124332845
+            },
+            user: {
+                lat: 35.58206478123707,
+                lng: 45.413231849406564
+            }
+        }
     },
     setOrderFoods: (foods) => set(() => ({
         foods,

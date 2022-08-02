@@ -8,6 +8,7 @@ import OrderScreen from '../screens/orderScreen/orderScreen';
 import { Entypo } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import ConfirmOrder from '../screens/confirm-order-screen/ConfirmOrder';
+import Maps from '../screens/maps/maps';
 
 
 export default function NavigationApp() {
@@ -60,6 +61,14 @@ function RootNavigator() {
 
 
             }} component={ConfirmOrder} />
+            <Stack.Screen name="Maps" options={{
+                orientation: 'portrait_up',
+                animation: 'slide_from_right',
+                headerTitleAlign: 'center',
+                title: 'Track Order',
+
+
+            }} component={Maps} />
         </Stack.Navigator>
     );
 }

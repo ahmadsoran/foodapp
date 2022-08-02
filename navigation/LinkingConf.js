@@ -28,6 +28,11 @@ const linking = {
                             confirmOrderScreen: 'ConfirmOrderScreen',
                         },
                     },
+                    Maps: {
+                        screens: {
+                            Maps: 'Maps',
+                        },
+                    },
 
 
                 },
