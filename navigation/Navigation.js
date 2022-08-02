@@ -27,6 +27,7 @@ function RootNavigator() {
                 orientation: 'portrait_up',
                 presentation: 'card',
                 animation: Platform.OS === 'ios' ? 'default' : 'slide_from_bottom',
+                title: 'Order Foods',
                 headerTitleAlign: 'center',
                 headerRight: () => (
                     <TouchableOpacity onPress={() => navigate('Cart')}>
@@ -34,7 +35,9 @@ function RootNavigator() {
                     </TouchableOpacity>
                 ),
 
+
             }} component={OrderScreen} />
+
             <Stack.Screen name="ConfirmOrderScreen" options={{
                 orientation: 'portrait_up',
                 animation: 'slide_from_right',

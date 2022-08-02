@@ -59,12 +59,14 @@ const OrderScreen = () => {
     return (
         <ImageHeaderScrollView
             maxHeight={300}
-            minHeight={100}
+            minHeight={0}
             maxOverlayOpacity={0.5}
             minOverlayOpacity={0.1}
             fadingEdgeLength={5}
-            foregroundParallaxRatio={1.2}
+            foregroundParallaxRatio={1.3}
             headerImage={findRest.image}
+            foregroundExtrapolate="extend"
+
             childrenStyle={{
                 borderRadius: 10,
             }}
@@ -191,8 +193,8 @@ const styles = StyleSheet.create({
         elevation: 10,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 10,
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
     },
     restname: {
         fontSize: 20,

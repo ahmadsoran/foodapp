@@ -47,10 +47,9 @@ export function CartItems() {
 
     return <SwipeListView data={foods} renderItem={renderItem} renderHiddenItem={renderHiddenItem}
         rightOpenValue={-100}
-        previewRowKey={'0'}
-        previewOpenValue={-40}
-        previewOpenDelay={3000}
         disableRightSwipe={true}
+        endFillColor={'red'}
+        stopRightSwipe={-100}
 
         ListFooterComponent={() => {
             return (
