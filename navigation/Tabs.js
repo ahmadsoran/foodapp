@@ -4,6 +4,7 @@ import { AntDesign, Entypo, FontAwesome, MaterialCommunityIcons, MaterialIcons }
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Animate, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Cart from '../components/Cart';
+import Login from '../screens/login/Login';
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
@@ -164,7 +165,7 @@ export default function Tabs() {
 
             }}
                 name="Account"
-                component={Home}
+                component={Login}
                 listeners={{
                     focus: () => rotateAnimationHandler3('360deg'),
                     blur: () => rotateAnimationHandler3('0deg'),

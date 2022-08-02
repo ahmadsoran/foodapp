@@ -24,6 +24,7 @@ const Maps = () => {
                 followsUserLocation={true}
                 rotateEnabled={true}
                 focusable={true}
+                userInterfaceStyle={'light'}
 
 
             >
