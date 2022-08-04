@@ -5,6 +5,7 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import Animate, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import Cart from '../components/Cart';
 import Login from '../screens/login/Login';
+import Nearby from '../screens/Nearby/Nearby';
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
@@ -101,10 +102,9 @@ export default function Tabs() {
             }}
         >
             <Tab.Screen options={{
-                headerTitle: '126-6 badinan address',
+                title: '12-6 zargata',
                 headerTitleAlign: 'center',
-
-
+                tabBarLabel: 'Home',
                 tabBarIcon: ({ color }) => (
                     <Animate.View style={animaterotateY}>
                         <AntDesign name="home" color={color} size={34} />
@@ -120,16 +120,19 @@ export default function Tabs() {
 
             />
             <Tab.Screen options={{
-                headerShown: false,
                 tabBarIcon: ({ color }) => (
                     <Animate.View style={animaterotateY1}>
                         <MaterialIcons name="location-searching" color={color} size={34} />
                     </Animate.View>
                 ),
+                title: '12-6 zargata',
+                tabBarLabel: 'Nearby',
+                headerTitleAlign: 'center',
+
 
             }}
                 name="Nearby"
-                component={Home}
+                component={Nearby}
                 listeners={{
                     focus: () => rotateAnimationHandler1('360deg'),
                     blur: () => rotateAnimationHandler1('0deg'),
