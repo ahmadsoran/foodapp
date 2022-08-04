@@ -9,4 +9,4 @@ app design from https://www.behance.net/gallery/101110101/Food-Delivery-App-Case
 <img src="https://res.cloudinary.com/ahmacloud/image/upload/v1659646194/portfolio/DC5C39BB-9934-44AF-BABA-0043513293F0_eyk3a6.png" width="20%" alt="ahmad soran food dilivery project" />
 <img src="https://res.cloudinary.com/ahmacloud/image/upload/v1659646193/portfolio/D345250D-8E38-436B-84B7-8FC9008C189F_tvmw1i.png" width="20%" alt="ahmad soran food dilivery project" />
 </div>
-[![](http://i.imgur.com/Ot5DWAW.png)](https://res.cloudinary.com/ahmacloud/video/upload/v1659646415/portfolio/IMG_1400_jk5coh.mov "")  
+  
